@@ -20,13 +20,13 @@
  */
 function calcPointArea(sub) {
   switch (sub) {
-    case 'A':
+    case "A":
       return 2;
-    case 'B':
+    case "B":
       return 1;
-    case 'C':
+    case "C":
       return 0.5;
-    case 'X':
+    case "X":
       return 0;
   }
 }
@@ -38,7 +38,7 @@ function ex1() {
     point_3 = 9,
     area = 1,
     pointArea,
-    sub = 'A',
+    sub = "A",
     pointSub,
     totalpoint = 0;
   // tính pointSub :
@@ -70,11 +70,50 @@ function ex1() {
   ) {
     totalpoint = point_1 + point_2 + point_3 + pointArea + pointSub;
     if (totalpoint >= benchmark)
-      console.log(' Tổng điểm : ' + totalpoint + ' Đậu  ');
-    else console.log(' Tổng điểm : ' + totalpoint + ' Rớt  ');
+      console.log(" Tổng điểm : " + totalpoint + " Đậu  ");
+    else console.log(" Tổng điểm : " + totalpoint + " Rớt  ");
   } else if (point_1 == 0 || point_2 == 0 || point_3 == 0) {
     totalpoint = point_1 + point_2 + point_3 + pointArea + pointSubject;
-    console.log(' Tổng điểm : ' + totalpoint + ' Rớt  ');
-  } else console.log('nhập sai');
-  console.log('Bài 1');
+    console.log(" Tổng điểm : " + totalpoint + " Rớt  ");
+  } else console.log("nhập sai");
+  console.log("Bài 1");
+}
+
+/**
+ * INPUT : Nhập số kw điện đã xài
+ *
+ * PROCESS :
+ *      1. Lấy input kw = 200
+ *      2. Tính tổng điểm
+ *        2.1 0 < kw <= 50 : totalPay = kw * 500
+ *        2.2 50 < kw <= 100 : totalPay = 50 * 500 + (kw - 50) * 650
+ *        2.3 100 < kw <= 200 : totalPay = 50 * 500 + 50 * 650 + (kw - 100) * 850
+ *        2.4 200 < kw <= 350 : totalPay = 50 * 500 + 50 * 650 + 100 * 850 + (kw - 200) * 1100
+ *        2.5 350 < kw  : totalPay = 50 * 500 + 50 * 650 + 100 * 850 + 150 * 1100 + (kw - 350) * 1300
+ *
+ *
+ *
+ * OUTPUT : Tổng tiền điện phải trả.
+ */
+
+function ex2() {
+  var kw = 200;
+  calcTotalPay(kw);
+}
+
+function calcTotalPay(kw) {
+  var totalPay = 0;
+  if (kw <= 0) {
+  } else if (kw <= 50) {
+    totalPay = kw * 500;
+  } else if (kw <= 100) {
+    totalPay = 50 * 500 + (kw - 50) * 650;
+  } else if (kw <= 200) {
+    totalPay = 50 * 500 + 50 * 650 + (kw - 100) * 850;
+  } else if (kw <= 350) {
+    totalPay = 50 * 500 + 50 * 650 + 100 * 850 + (kw - 200) * 1100;
+  } else {
+    totalPay = 50 * 500 + 50 * 650 + 100 * 850 + 150 * 1100 + (kw - 350) * 1300;
+  }
+  console.log("Số tiền điện phải trả = " + totalPay);
 }
