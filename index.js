@@ -104,6 +104,7 @@ function ex2() {
 function calcTotalPay(kw) {
   var totalPay = 0;
   if (kw <= 0) {
+    totalPay = 0;
   } else if (kw <= 50) {
     totalPay = kw * 500;
   } else if (kw <= 100) {
